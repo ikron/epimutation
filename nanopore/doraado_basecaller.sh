@@ -1,0 +1,13 @@
+#!/bin/bash -l
+
+
+#Basecalling with dorado
+#Input and outputs directories etc.
+path2dorado=/projappl/project_2000350/Genomics/dorado-0.3.3-linux-x64/bin
+#Write the directory of the pod5 files
+inputdir=/scratch/project_2000350/genomics/nanopore/230907_ncrassa_19/230907_ncrassa_19/20230907_1236_MC-114816_FAX10982_c0248fe8/FAX10982_c0248fe8_08a207e7_0.pod5
+modeldir=/projappl/project_2000350/Genomics/dorado-0.3.3-linux-x64/
+outputdir=/scratch/project_2000350/genomics/nanopore/240319_ncrassa_19/basecalled_modified
+
+
+$path2dorado/dorado basecaller $path2dorado/dna_r10.4.1_e8.2_400bps_sup@v4.2.0 $inputdir --emit-sam -v --modified-bases-models $modeldir/dna_r10.4.1_e8.2_400bps_sup@v4.2.0_5mC@v2  > $outputdir/basecalled_5mC_240207.sam 
