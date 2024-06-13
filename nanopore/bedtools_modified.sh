@@ -13,7 +13,7 @@ samples=(2489_MatA 2489_Mata G1_L11 G1_L23 G1_L31 G1_L2 G1_L25 G1_L5 G5_L11 G5_L
 sample=${samples[$SLURM_ARRAY_TASK_ID]} #Note that bash arrays are 0-index based
 
 
-#Separate + and - strands and filter for a coverage of mmin 5
+#Separate + and - strands and filter for a coverage of min 5
 awk 'BEGIN {FS="\t";OFS="\t"};{if ($6 == "+" && $10 > 5) print $0}' $alignments/$sample.bed >  $int/$sample-foward.bed
 awk 'BEGIN {FS="\t";OFS="\t"};{if ($6 == "-" && $10 > 5) print $0}' $alignments/$sample.bed >  $int/$sample-reverse.bed
 #print the columns of interest and the end position to extract from fasta
@@ -23,7 +23,7 @@ awk 'BEGIN {FS="\t";OFS="\t"}; {print $1,$3-3,$3,$3,$5,$6,$12,$13}' $int/$sample
 #concatenate files
 cat $int/$sample-foward1.bed $int/$sample-reverse1.bed > $int/$sample-1.bed
 #filter out the starts that are smaller that 0 and the coverage above 5
-awk 'BEGIN {FS="\t";OFS="\t"}; {if ($2 > 1 && $5 > 5) print $0}' $int/$sample-1.bed  > $int/$sample-2.bed
+awk 'BEGIN {FS="\t";OFS="\t"}; {if ($2 > 1 ) print $0}' $int/$sample-1.bed  > $int/$sample-2.bed
 bedtools sort -faidx $chrm_list -i $int/$sample-2.bed > $int/$sample-3.bed
 
 #get trinucleotide with getfasta
