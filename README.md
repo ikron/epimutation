@@ -1,5 +1,16 @@
 # epimutation
-Investigating epimutations in Neurospora crassa
+Investigating epimutations in _Neurospora crassa_
+
+We have previously performed a mutation accumulation experiment using the filamentous fungus _Neurospora crassa_. In this study we investigated spontaneous methylation changes in the MA-lines. First we performed bisulphite sequencing to determine methylated cytosines in these lines. We used the program Methimpute to to determine methylation status of each cytosine. Then we determined methylated regions in the genome using jDMR. To estimate rates of spontaneous methylation changes we ran the program AlphaBeta for both single cytosines and differentially methylated regions (DMRs).
+
+## Processing bisulphite sequencing data
+
+### Running Methimpute
+
+### Running jDMR
+
+
+## Processing nanopore data
 
 In the nanopore folder the scripts for basecalling, demultiplex, mapping and methylation calling:
 Run  in the following order:
