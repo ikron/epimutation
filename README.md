@@ -25,12 +25,14 @@ Run  in the following order:
 
 5.bedtools_modified.sh : Script to modify modkit output to make it similar to Bismark.
 
+6.methimpute.R : R script to run methimpute
+
 ## Processing ChIP-seq
 
-
-
-6.methimpute.R : R script to run methimpute
 1. BWA.sh : Script to align the ChiP-seq data
-2. macs2_advanced_sample.sh : Script to run macs2 (advanced version) with the metrics specific to each sample.
-3. chrhmm : Script to run run chrmHMM (https://ernstlab.github.io/ChromHMM)
-4. ChromTime : modifed script of ChromTime in python2 (https://github.com/ernstlab/ChromTime)
+   
+3. macs2_advanced_sample.sh : Script to run macs2 (advanced version) with the metrics specific to each sample.
+   
+5. chrhmm : Script to run run chrmHMM (https://ernstlab.github.io/ChromHMM)
+   
+7. ChromTime : modifed script of ChromTime in python2 (https://github.com/ernstlab/ChromTime)
