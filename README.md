@@ -17,6 +17,14 @@ Scripts for processing bisulfite-seq data are in the folder ./WGBS
 
 Scripts for processing Nanopore sequencing data are in the folder ./nanopore
 
+## Inferring differentially methylated regions (DMRs)
+
+Scripts for inferring DMRs are in the folder ./jDMR
+
+## Subsetting single cytosine and DMR methylomes
+
+Scripts for subsetting single cytosine and DMR methylomes are in the folder ./subsets
+
 ## Processing ChIP-seq data
 
 Scripts for processing ChIP-seq data are in the folder ./Chipseq
