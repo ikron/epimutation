@@ -10,6 +10,7 @@ The scripts for processing WGBS data are in folder ./jDMR/WGBS and contain files
   <li> jDMR_euchromatin.R and jDMR_euchromatin_job.sh for inferring DMRs in euchromatic regions </li>
   <li> jDMR_centromericH3K9.R and jDMRcentromericH3K9_job.sh for inferring DMRs in centromeric regions </li>
   <li> jDMR_H3K27_ex_H3K9.R and jDMR_H3K27_ex_H3K9_job.sh for inferring DMRs in regions marked by H3K27 but excluding overlapping H3K9 regions</li>
+  <li> jDMR_H3K9_ex_cent2.R and jDMR_H3K9_ex_cent2_job.sh for inferring DMRs in regions marked by H3K9 excluding centromeric H3K9 (i.e. interspersed heterochromatic regions)</li>
 </ul>
 
 The scripts for processing Nanopore data are in folder ./jDMR/Nanopore and contain files
