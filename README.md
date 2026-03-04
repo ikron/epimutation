@@ -11,19 +11,12 @@ Note that the original scripts were mostly run on the Finnish CSC computer clust
 
 ## Processing bisulphite sequencing data
 
-Scripts for processing bisulfite-seq data are in the folder WGBS
+Scripts for processing bisulfite-seq data are in the folder ./WGBS
 
 ## Processing Nanopore sequencing data
 
-Scripts for processing Nanopore sequencing data are in the folder nanopore
+Scripts for processing Nanopore sequencing data are in the folder ./nanopore
 
+## Processing ChIP-seq data
 
-## Processing ChIP-seq
-
-1. BWA.sh : Script to align the ChiP-seq data
-   
-3. macs2_advanced_sample.sh : Script to run macs2 (advanced version) with the metrics specific to each sample.
-   
-5. chrhmm : Script to run run chrmHMM (https://ernstlab.github.io/ChromHMM)
-   
-7. ChromTime : modifed script of ChromTime in python2 (https://github.com/ernstlab/ChromTime)
+Scripts for processing ChIP-seq data are in the folder ./Chipseq
