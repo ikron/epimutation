@@ -11,11 +11,11 @@ Note that the original scripts were mostly run on the Finnish CSC computer clust
 
 ## Processing bisulphite sequencing data
 
-Scripts for processing bisulfite-seq data are in the folder ./WGBS
+Scripts for processing bisulfite-seq data to generate methylomes are in the folder ./WGBS
 
 ## Processing Nanopore sequencing data
 
-Scripts for processing Nanopore sequencing data are in the folder ./nanopore
+Scripts for processing Nanopore sequencing data to generate methylomes are in the folder ./nanopore
 
 ## Subsetting methimpute files
 
