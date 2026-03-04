@@ -30,6 +30,12 @@ Scripts for inferring DMRs are in the folder ./jDMR
 
 Scripts for subsetting single cytosine and DMR methylomes are in the folder ./subsets
 
+## Calculating methylation divergence for the MA pedigree samples
+
+Scripts for calculating methylation divergence for the MA samples for single cytosines and DMRs and for different subsets of the genome are in ./pedigree_div
+
+The output of the divergence calculations are in ./Illumina_ABdata for the WGBS data and in ./nanoporeABdata for the Nanopore data
+
 ## Processing ChIP-seq data
 
 Scripts for processing ChIP-seq data are in the folder ./Chipseq
