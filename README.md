@@ -7,35 +7,16 @@ Sequencing data related to this project has been deposited to European nucleotid
 
 The processing of different types of sequencing data are described below.
 
+Note that the original scripts were mostly run on the Finnish CSC computer cluster that uses the SLURM batch job system. As such to make the scripts work on your computing environment you may need to modify the control commands accordingly. As well as input and ouput folders, program directories etc. of course.
+
 ## Processing bisulphite sequencing data
 
-Scripts for processing bisulfite-seq data is folder WGBS
+Scripts for processing bisulfite-seq data are in the folder WGBS
 
 ## Processing Nanopore sequencing data
 
+Scripts for processing Nanopore sequencing data are in the folder nanopore
 
-
-### Running Methimpute
-
-### Running jDMR
-
-
-## Processing nanopore data
-
-In the nanopore folder the scripts for basecalling, demultiplex, mapping and methylation calling:
-Run  in the following order:
-
-1.basecalling_modified_bases_dorado.sh : Script for nanopore modified-base basecalling using Dorado. We used the model dna_r10.4.1_e8.2_400bps_sup@v4.2.0 v2. 
-
-2.demultiplex_dorado.sh : Script for demutliplex in the basecalled file using dorado.
-
-3.mapping_dorado.sh : Script for mapping to reference genome using dorado. 
-
-4.modkit_modified.sh : Script for calling methylated bases using modkit
-
-5.bedtools_modified.sh : Script to modify modkit output to make it similar to Bismark.
-
-6.methimpute.R : R script to run methimpute
 
 ## Processing ChIP-seq
 
