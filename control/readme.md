@@ -1,1 +1,1 @@
-This folder contains control files for AlphaBEta pedigree analyses and for jDMR
+This folder contains control files for AlphaBeta pedigree analyses and for jDMR
