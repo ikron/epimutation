@@ -38,7 +38,15 @@ The output of the divergence calculations are in ./Illumina_ABdata for the WGBS 
 
 ## Fitting models of epimutation accumulation using AlphaBeta
 
-Scripts for fitting epimutation accumulation models are in ./ABmodelfits/WGBS for the WGBS data and ./ABmodelfits/Nanopore for the Nanopore data. Output of the models is available in ./modeldata
+Scripts for fitting epimutation accumulation models are in ./ABmodelfits/WGBS for the WGBS data and ./ABmodelfits/Nanopore for the Nanopore data. 
+
+### Proportions of unmethylated cytosines and DMR bins in the ancestors of the MA pedigree
+
+Estimates of the parameter p0uu, the proportion of unmethylated cytosines (or DMR bins) in the ancestor of the MA pedigree are in folder ./ABmodelfits/unmethprop
+
+### Output of the models
+
+Output of the AB neutral haploi models is available in ./modeldata
 
 ## Processing ChIP-seq data
 
