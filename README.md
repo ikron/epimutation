@@ -50,3 +50,7 @@ Output of the AB neutral haploi models is available in ./modeldata
 ## Processing ChIP-seq data
 
 Scripts for processing ChIP-seq data are in the folder ./Chipseq
+
+## Data analysis
+
+Scripts, functions, and intermediate output data used for data analysis are in folder ./analysis
