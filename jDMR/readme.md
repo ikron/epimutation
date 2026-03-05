@@ -16,4 +16,6 @@ The scripts for processing WGBS data are in folder ./jDMR/WGBS and contain files
 The scripts for processing Nanopore data are in folder ./jDMR/Nanopore and contain files
 <ul>
   <li> jDMR_all_nanopore.R and jDMR_nanopore_job.sh for inferring DMRs across the genome </li>
+  <li> jDMR_methimpute_euchromatin.R and jDMR_euchromatin.sh for inferring DMRs across different regions of the genome (note that this file includes multiple regions) </li>
+  <li> jDMR_methimpute_H3K9.R and jDMR_methimpute_H3K9.sh for inferring DMRs across different regions of the genome (file includes multiple regions) </li>
 </ul>
