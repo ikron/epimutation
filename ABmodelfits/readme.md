@@ -14,3 +14,5 @@ To perform bootstrap
 ```
 my.boot.results <- BOOTmodel_Haploid(model.fit = my.neutral.model.output, Nboot = 1000, out.dir = "outputdir", out.name = "my_bootresults")
 ```
+
+The folder ./ABmodelfits/unmethprop contains R obejcts that store the proportions of unmethylated cytosines or DMR bins of the MA ancestors. These are used as a parameter in the AB models.
