@@ -36,6 +36,10 @@ Scripts for calculating methylation divergence for the MA samples for single cyt
 
 The output of the divergence calculations are in ./Illumina_ABdata for the WGBS data and in ./nanoporeABdata for the Nanopore data
 
+## Fitting models of epimutation accumulation using AlphaBeta
+
+Scripts for fitting epimutation accumulation models are in ./ABmodelfits/WGBS for the WGBS data and ./ABmodelfits/Nanopore for the Nanopore data. Output of the models is available in ./modeldata
+
 ## Processing ChIP-seq data
 
 Scripts for processing ChIP-seq data are in the folder ./Chipseq
