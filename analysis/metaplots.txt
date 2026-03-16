@@ -1,0 +1,65 @@
+zgrep -v '^track' trim.MANC1_1_bismark_bt2_pe.bedGraph.gz  > trim.MANC1_1_bismark_noheader.bedGraph.gz 
+
+
+#sort the bedgraph and convert it to a bigwig
+
+awk '$1 != "Lambda_phage"' trim.MANC1_1_bismark_noheader.bedGraph.gz > Neurospora_ANCbismark.cleansorted.bedGraph
+
+LC_COLLATE=C sort -k1,1 -k2,2n Neurospora_ANCbismark.cleansorted.bedGraph > Neurospora_ANCbismark.sorted.bedGraph
+
+bedGraphToBigWig Neurospora_ANCbismark.sorted.bedGraph /dir/Neurosporasizes.genome Neurospora_ANCbismark.bw
+
+computeMatrix reference-point --referencePoint TSS -S Neurospora_ANCbismark.bw -R /dir/Neurospora_crassa.NC12_gff3.bed -a 2000 -b 2000 -p 4 -o matrix_tss.mat.gz
+
+plotProfile -m matrix_tss.mat.gz -out metaplot.png --perGroup --plotTitle "Methylation Profile"
+
+
+#To separate the different contexts use:
+zcat trim.MANC1_1_bismark_bt2_pe.CX_report.txt.gz | \
+awk 'BEGIN{OFS="\t"}
+{
+  total = $4 + $5
+  if (total > 0) {
+    start = $2 - 1
+    end   = $2
+    perc  = 100 * $4 / total
+
+    if ($6 == "CG")
+      print $1, start, end, perc >> "CG.bedGraph"
+    else if ($6 == "CHG")
+      print $1, start, end, perc >> "CHG.bedGraph"
+    else if ($6 == "CHH")
+      print $1, start, end, perc >> "CHH.bedGraph"
+  }
+}'
+
+#sort the individual constexts
+
+LC_COLLATE=C sort -k1,1 -k2,2n CG.bedGraph > CG.sorted.bedGraph
+LC_COLLATE=C sort -k1,1 -k2,2n CHG.bedGraph > CHG.sorted.bedGraph
+LC_COLLATE=C sort -k1,1 -k2,2n CHH.bedGraph > CHH.sorted.bedGraph
+
+bedGraphToBigWig CG.sorted.bedGraph /dir/Neurosporasizes.genome CG_bismark.bw
+bedGraphToBigWig CHG.sorted.bedGraph /dir/Neurosporasizes.genome CHG_bismark.bw
+bedGraphToBigWig CHH.sorted.bedGraph /dir/Neurosporasizes.genome CHH_bismark.bw
+
+computeMatrix reference-point --referencePoint TSS -S CG_bismark.bw CHG_bismark.bw CHH_bismark.bw -R /dir/Neurospora_crassa.NC12_gff3.bed -a 2000 -b 2000 -p 4 -o matrix_contexts_tss.mat.gz
+
+#Matrix regions
+computeMatrix scale-regions -S CG_bismark.bw CHG_bismark.bw CHH_bismark.bw -R /dir/Neurospora_genes.bed --beforeRegionStartLength 3000 --afterRegionStartLength 3000 --skipZeros -o regions_matrix.mat.gz
+
+plotProfile -m regions_matrix.mat.gz -out metaplot_context.svg --perGroup --plotWidth 15 --plotHeight 10
+plotProfile -m regions_matrix.mat.gz -out heatmap_context.svg --perGroup --plotWidth 15 --plotHeight 10 --plotType heatmap
+
+#Metaplots with histone modification bed
+
+computeMatrix reference-point --referencePoint center -S CG_bismark.bw CHG_bismark.bw CHH_bismark.bw -R /dir/2489.H3K27_exK9.bed -a 10000 -b 10000 -p 4 -o matrix_H3K27.mat.gz
+
+computeMatrix reference-point --referencePoint center -S CG_bismark.bw CHG_bismark.bw CHH_bismark.bw -R /dir/2489.H3K9.domains.duprm.bed  -a 10000 -b 10000 -p 4 -o matrix_H3K9.mat.gz
+
+
+plotProfile -m matrix_H3K27.mat.gz -out metaplot_H3K27.svg --perGroup --plotWidth 15 --plotHeight 10 
+plotProfile -m matrix_H3K27.mat.gz -out heatmap_H3K27.svg --perGroup --plotWidth 15 --plotHeight 10 --plotType heatmap
+
+plotProfile -m matrix_H3K9.mat.gz -out metaplot_H3K9.svg --perGroup --plotWidth 15 --plotHeight 10
+plotProfile -m matrix_H3K9.mat.gz -out heatmap_metaplot_H3K9.svg --perGroup --plotWidth 15 --plotHeight 10 --plotType heatmap
