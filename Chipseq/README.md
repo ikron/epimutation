@@ -1,6 +1,6 @@
 # Processing ChIP-seq data
 
-1. BWA.sh : Script to align the ChiP-seq data
+1. bwa_alignment.sh : Script to align the ChiP-seq reads to the reference genome
    
 3. macs2_advanced_sample.sh : Script to run macs2 (advanced version) with the metrics specific to each sample.
    
